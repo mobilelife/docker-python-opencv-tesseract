@@ -37,7 +37,7 @@ RUN cd ./leptonica-1.73 \
 RUN cd ./tesseract-master \
     && ./autogen.sh LIBLEPT_HEADERSDIR=/usr/local/lib --with-extra-libraries=/usr/local/lib \
     && ./configure \
-    && make \
+    && make -j2 \
     && make install \
     && ldconfig
 
