@@ -41,6 +41,8 @@ RUN cd ./tesseract-master \
     && make install \
     && ldconfig
 
+RUN CPPFLAGS=-I/usr/local/include pip install tesserocr
+
 # Cleanup
 RUN apt-get purge -y $BUILD_PACKAGES $EXTRA_PACKAGES \
     && rm -rf /var/lib/apt/lists/* \
