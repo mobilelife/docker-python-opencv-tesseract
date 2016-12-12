@@ -2,7 +2,7 @@
 
 Builds upon the `docker-python-opencv` image, and adds bleeding edge tesseract ocr version 4.
 
-Installs the python [`tesserocr` package](https://github.com/sirfz/tesserocr)
+Installs the python [`pytesseract` package](https://pypi.python.org/pypi/pytesseract/0.1) as well as it's unlisted dependency pillow
 
 ## Building and pushing the image
 
