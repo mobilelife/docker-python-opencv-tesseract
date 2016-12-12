@@ -4,7 +4,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 LEPTONICA="leptonica-1.73.tar.gz"
-TESSERACT="tesseract-master.zip"
+TESSERACT="tesseract-master.tar.gz"
 if [ ! -d ./temp ]; then
     mkdir ./temp
 fi
@@ -17,7 +17,7 @@ fi
 
 if [ ! -f ./temp/${TESSERACT} ]; then
     echo "tesseract not found, downloading tarball"
-    curl -L -o ./temp/${TESSERACT} https://github.com/tesseract-ocr/tesseract/archive/master.zip
+    curl -L -o ./temp/${TESSERACT} https://github.com/tesseract-ocr/tesseract/archive/master.tar.gz
 fi 
 
 echo "building docker container"
