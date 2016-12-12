@@ -1,7 +1,6 @@
 # TODO: FROM docker-python-opencv
-FROM ubuntu:16.04
+FROM dbmobilelife/docker-python-opencv
 
-RUN mkdir /tmp/thework
 WORKDIR /tmp/thework
 
 ARG BUILD_PACKAGES="autoconf    \
