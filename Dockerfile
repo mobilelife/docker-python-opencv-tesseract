@@ -14,9 +14,13 @@ ARG BUILD_PACKAGES="autoconf    \
     pkg-config                  \
     zlib1g-dev"
 
+ARG EXTRA_PACKAGES="autotools-dev \
+    binutils cpp cpp-5 dpkg-dev file g++-5 gcc gcc-5 libc-dev-bin libc6-dev \
+    libcc1-0 libcilkrts5 libdpkg-perl libgcc-5-dev libjbig-dev libjpeg-turbo8-dev \
+    liblzma-dev libstdc++-5-dev linux-libc-dev m4 make patch"
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends $BUILD_PACKAGES 
-
 
 ADD ./temp/leptonica-1.73.tar.gz .
 ADD ./temp/tesseract-master.tar.gz .
@@ -38,6 +42,6 @@ RUN cd ./tesseract-master \
     && ldconfig
 
 # Cleanup
-RUN apt-get purge -y $BUILD_PACKAGES \
+RUN apt-get purge -y $BUILD_PACKAGES $EXTRA_PACKAGES \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/thework/*
