@@ -40,10 +40,9 @@ RUN cd ./tesseract-master \
     && make install \
     && ldconfig
 
-RUN apt-get install -y python-setuptools \
-    && pip install cython 
+RUN apt-get install -y python-setuptools 
 
-RUN CPPFLAGS='-I/usr/local/include -g -std=c++11 -Wall -pedantic' pip install tesserocr
+RUN pip install pytesseract pillow
 
 # Cleanup
 RUN apt-get purge -y $BUILD_PACKAGES $EXTRA_PACKAGES \
